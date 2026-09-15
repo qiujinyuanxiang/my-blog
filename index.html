@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Blog</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -22,7 +23,7 @@
             <h2>最新文章</h2>
             <article>
                 <h3>我的第一篇文章</h3>
-                <p>这是我的第一个博客文章</p>
+                <p>这是我的第一篇博客文章</p>
                 <a href="/articles/first-post">阅读更多</a>
             </article>
             <article>
@@ -56,23 +57,31 @@
 
         <section class="skills">
             <h2>我的技能</h2>
-            <h3>前端开发</h3>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-            </ul>
-            <h3>后端开发</h3>
-            <ul>
-                <li>Node.js</li>
-                <li>PostgreSQL</li>
-            </ul>
-            <h3>工程</h3>
-            <ul>
-                <li>Git</li>
-                <li>Docker</li>
-                <li>Linux</li>
-            </ul>
+            <div class="skill-groups">
+                <div class="skill-group">
+                    <h3>前端开发</h3>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>后端开发</h3>
+                    <ul>
+                        <li>Node.js</li>
+                        <li>PostgreSQL</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>工程</h3>
+                    <ul>
+                        <li>Git</li>
+                        <li>Docker</li>
+                        <li>Linux</li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </main>
     <footer>

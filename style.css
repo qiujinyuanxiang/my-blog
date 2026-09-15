@@ -72,3 +72,16 @@ footer {
         padding: 16px;
     }
 }
+
+.dark {
+    background: #222;
+    color: white;
+}
+
+.dark nav a {
+    color: white;
+}
+
+.dark article {
+    border-color: #555;
+}

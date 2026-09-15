@@ -1,7 +1,9 @@
 import { setupTheme } from "./theme.js";
 import { setupSearch, renderPosts } from "./posts.js";
-import { fetchPosts } from "./api.js";
+import { fetchPosts } from "./api.js"
+
 setupTheme();
+
 async function init() {
     try {
         const data = await fetchPosts();
@@ -11,8 +13,7 @@ async function init() {
         }
         renderPosts(data, "");
         setupSearch(data);
-    }
-    catch (error) {
+    } catch (error) {
         console.error(error);
         const loading = document.querySelector("#loading");
         if (loading) {
@@ -24,5 +25,5 @@ async function init() {
         }
     }
 }
+
 init();
-//# sourceMappingURL=main.js.map

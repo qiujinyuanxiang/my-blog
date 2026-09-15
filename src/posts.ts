@@ -1,9 +1,14 @@
-function renderPosts(posts, searchText) {
+import type { Post } from "./types.js"
+
+
+function renderPosts(posts: Post[], searchText: string) {
     const filteredPosts = posts.filter(function (post) {
         const keyword = searchText.toLowerCase();
         return post.title.toLowerCase().includes(keyword) || post.body.toLowerCase().includes(keyword);
     });
+
     let html = "";
+
     if (filteredPosts.length === 0) {
         html = `
                 <article>
@@ -21,19 +26,25 @@ function renderPosts(posts, searchText) {
         </article>
         `;
         }).join("");
+
     }
     const postList = document.querySelector("#post-list");
     if (postList) {
         postList.innerHTML = html;
     }
 }
-function setupSearch(posts) {
-    const searchInput = document.querySelector("#post-search");
+
+function setupSearch(posts: Post[]) {
+    const searchInput = document.querySelector<HTMLInputElement>("#post-search");
+
     if (searchInput) {
         searchInput.addEventListener("input", function () {
             renderPosts(posts, searchInput.value);
         });
     }
 }
-export { renderPosts, setupSearch };
-//# sourceMappingURL=posts.js.map
+
+export {
+    renderPosts,
+    setupSearch
+};

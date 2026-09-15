@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: sans-serif;
@@ -50,7 +54,21 @@ article h3 {
     gap: 20px;
 }
 
+.skill-group {
+    flex: 1;
+}
+
 footer {
     max-width: 900px;
     margin: 40px auto 0;
+}
+
+@media (max-width: 600px) {
+    .skill-groups {
+        flex-direction: column;
+    }
+
+    article {
+        padding: 16px;
+    }
 }

@@ -1,50 +1,20 @@
 import type { Post } from "./types.js"
+import { createPostList } from "./components/PostList.js";
 
 
 function renderPosts(posts: Post[], searchText: string) {
-    const filteredPosts = posts.filter(function (post) {
-        const keyword = searchText.toLowerCase();
-        return post.title.toLowerCase().includes(keyword) || post.body.toLowerCase().includes(keyword);
+    const filteredPosts = posts.filter(function(post){
+        return (post.title.includes(searchText) || post.body.includes(searchText));
     });
 
-    let html = "";
+    const postList = document.querySelector("#post-List");
 
-    if (filteredPosts.length === 0) {
-        html = `
-                <article>
-                <p>没有找到文章</p>
-                </article>
-                `;
+    if(postList){
+        postList.innerHTML = createPostList(filteredPosts);
     }
-    else {
-        html = filteredPosts.map(function (post) {
-            return `
-        <article>
-        <h3>${post.title}</h3>
-        <p>${post.body}</p>
-        <p>${post.id}</p>
-        </article>
-        `;
-        }).join("");
 
-    }
-    const postList = document.querySelector("#post-list");
-    if (postList) {
-        postList.innerHTML = html;
-    }
-}
-
-function setupSearch(posts: Post[]) {
-    const searchInput = document.querySelector<HTMLInputElement>("#post-search");
-
-    if (searchInput) {
-        searchInput.addEventListener("input", function () {
-            renderPosts(posts, searchInput.value);
-        });
-    }
 }
 
 export {
-    renderPosts,
-    setupSearch
+    renderPosts
 };
